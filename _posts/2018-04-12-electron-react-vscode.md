@@ -2,6 +2,7 @@
 title:  "electron + react 연동하기 with vscode"
 excerpt: ""
 author: dpTablo
+comments: true
 
 categories:
 - electron
