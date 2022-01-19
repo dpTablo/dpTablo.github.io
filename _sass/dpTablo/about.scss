@@ -1,0 +1,90 @@
+.page-about {
+  padding-left: 2.5em;
+  padding-right: 2.5em;
+}
+
+.about {
+  div, p, li { font-size: 0.95em; }
+  p { margin: 0 0 1em; }
+  h3 { font-size: 1.65em; }
+  h4 { font-size: 1.5em;  }
+  h5 { font-size: 1.25em; }
+
+  header {
+    margin-bottom: 1em;
+
+    h1, h2, h3 {
+      margin: 0 !important;
+    }
+
+    .profile_photo {
+      width: 100%;
+    }
+    .ko_name {
+      font-size: 1.6em;
+      font-weight: 600;
+      margin-top: 0.5em;
+    }
+    .en_name {
+      font-size: 1.0em;
+      color: gray;
+    }
+    .links {
+      margin-top: 1.5em;
+      font-size: 1.1em;
+
+      div.row {
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+        height: 2em;
+      }
+
+      a { color: gray; }
+      img { height: 1.2em; }
+    }
+  }
+
+  section {
+    margin-bottom: 0.5em;
+    padding: 0.4em 0 0.8em 0;
+
+    h3 {
+      border-bottom: 1px solid #E7E8E8;
+      padding-bottom: 0.2em;
+    }
+  }
+
+  .topTitle {
+    padding: 0.5em 0 0.5em 0;
+    color: #3388B3;
+    text-align: center;
+    font-size: 1.4em;
+    border: 0 !important;
+  }
+
+  .description {
+    color: gray;
+  }
+
+  .item {
+    border-bottom: 1px solid #f2f3f3;
+    margin: 1em 0 1em 0;
+
+    .left {
+      font-size: 1.15em;
+      color: gray;
+    }
+  }
+
+  .skill_comment {
+    margin-bottom: 1em;
+    font-size: 0.75em;
+    color: gray;
+
+    .skill_item {
+      margin-right: 1em;
+    }
+  }
+}
+
+
