@@ -44,13 +44,21 @@
     }
   }
 
+  .section-header-h3 {
+    border-bottom: 1px solid #E7E8E8;
+    padding-bottom: 0.2em;
+  }
+
   section {
     margin-bottom: 0.5em;
     padding: 0.4em 0 0.8em 0;
 
     h3 {
-      border-bottom: 1px solid #E7E8E8;
-      padding-bottom: 0.2em;
+      @extend .section-header-h3;
+    }
+
+    > *:last-child {
+      border: 0 !important;
     }
   }
 
@@ -68,7 +76,7 @@
 
   .item {
     border-bottom: 1px solid #f2f3f3;
-    margin: 1em 0 1em 0;
+    padding: 0.8em 0 0.8em 0;
 
     .left {
       font-size: 1.15em;
@@ -83,6 +91,55 @@
 
     .skill_item {
       margin-right: 1em;
+    }
+  }
+
+  .experience {
+    span.badge {
+      font-weight: 400;
+      font-size: 0.8em;
+    }
+
+    > header {
+      @extend .section-header-h3;
+
+      .title {
+        @extend h3;
+        display: inline-block;
+        border: 0;
+      }
+    }
+
+    .experience-item {
+      ul {
+        margin: 0;
+        padding-inline-start: 1.4em;
+      }
+
+      .experience-title {
+        @extend h5;
+        margin: 0 0 0.5em 0;
+        padding: 0 0 0.2em 0;
+      }
+
+      .project-item {
+        margin-bottom: 1em;
+      }
+
+      .project-title {
+        color: gray;
+        padding: 0.4em 0 0.4em 0;
+      }
+
+      .skill-list {
+        list-style: none;
+        padding: 0;
+
+        li {
+          display: inline-block;
+          margin-right: 0.2em;
+        }
+      }
     }
   }
 }
