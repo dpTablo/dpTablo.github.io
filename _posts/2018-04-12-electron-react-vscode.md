@@ -29,7 +29,7 @@ webpack 4.x 로 오면서 opmization 부분들이 3.x 에서는 플러그인 형
 electron 과 react 를 비롯하여 webpack, sass, babel, eslint 등을 적용하였습니다.
 react 테스트를 위해 webpack-dev-server 를 적용하였습니다.
 
-```node
+```json
 {
     "name": "dptablo-electron-react",
     "version": "0.1.0",
