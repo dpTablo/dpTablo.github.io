@@ -1,6 +1,15 @@
 {% assign document = post | default: page %}
 {% if document.read_time or document.show_date %}
   <p class="page__meta">
+    <!--
+      dpTablo custom - 포스팅 제목 작성일 표시
+    -->
+    {% if post.date %}
+      <span class="page__date"><img src="/assets/images/calendar_icon.svg">{{ post.date | date: "%Y. %m. %d" }}</span>
+    {% elsif document.date %}
+      <span class="page__date"><img src="/assets/images/calendar_icon.svg">{{ document.date | date: "%Y. %m. %d" }}</span>
+    {% endif %}
+
     {% if document.show_date and document.date %}
       {% assign date = document.date %}
       <span class="page__meta-date">

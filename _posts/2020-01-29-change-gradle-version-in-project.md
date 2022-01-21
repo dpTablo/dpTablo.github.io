@@ -4,7 +4,7 @@ excerpt: "gradle wrapper 의 version을 변경하는 방법"
 thumbnail: /assets/images/_posts/2020-01-29-change-gradle-version-in-project/gradle_version_capture.png
 author_profile: true
 date: 2020-01-29 10:07:00 +0900
-last_modified_at: 2019-04-13T08:06:00-05:00
+last_modified_at: 2020-01-29 10:07:00 +0900
 
 categories:
 - build
