@@ -1,23 +1,16 @@
 ---
 title:  "electron + react 연동하기 with vscode"
 excerpt: ""
-author: dpTablo
-comments: true
+author_profile: true
+date: 2018-04-12 19:01:00 +0900
+last_modified_at: 2018-04-12 19:01:00 +0900
 
 categories:
 - electron
 - react
 - vscode
 
-tags:
-- electron
-- react
-- vscode
-- project
-- template
-
-date: 2018-04-12 19:01:00 +0900
-last_modified_at: 2018-04-12 19:01:00 +0900
+tags: [electron, react, vscode, project, template]
 ---
 
 electron 과 react 를 이용한 구현 기술 학습을 하던 중 직접 프로젝트를 설정해보았습니다.

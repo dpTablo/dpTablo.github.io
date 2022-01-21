@@ -1,7 +1,9 @@
 ---
 title:  "Spring Boot + React + Gradle in VSCode"
 excerpt: ""
-author: dpTablo 
+author_profile: true
+date: 2019-10-16 17:30:00 +0900
+last_modified_at: 2019-10-16 17:30:00 +0900
 
 categories:
 - spring boot
@@ -9,16 +11,7 @@ categories:
 - gradle
 - vscode
 
-
-tags:
-- project template
-- spring boot
-- react
-- gradle
-- vscode
-
-date: 2019-10-16 17:30:00 +0900
-last_modified_at: 2019-10-16 17:30:00 +0900
+tags: [project template, react, gradle, vscode]
 ---
 
 Spring Boot + React + Gradle 프로젝트를 구성하고 VSCode 안에서 통합하여 개발하는 방법을 설명합니다.
