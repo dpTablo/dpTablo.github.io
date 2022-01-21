@@ -19,9 +19,10 @@ tags: [gradle, wrapper, version]
 gradlew wrapper --gradle-version 6.1.1
 ```
 
-console 창에서 수행한 결과 화면 입니다.
+console 창에서 수행한 결과 화면 입니다.  
 
-![alt]({{ site.url }}{{ site.baseurl }}/assets/images/_posts/20200129/gradle_version_capture.png)
+![]({{ site.url }}{{ site.baseurl }}/assets/images/posts/change-gradle-version-in-project/gradle_version_capture.png)
+
 
 명령을 수행하고 나면 gradlew 파일이 변경되고, projectRoot/gradle/wrapper/gradle-wrapper.properties 의 내용이 변경됩니다.
 

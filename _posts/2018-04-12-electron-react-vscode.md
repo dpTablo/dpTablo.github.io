@@ -93,22 +93,22 @@ index.html 에는 react 가 변환된 bundle.js 만 포함합니다.
     </body>
 </html>
 ```
-
+<br>
 vscode 에서 'webpack-dev-server' task 를 실행합니다.  
 해당 task 를 실행하면 자동으로 빌드되어 /dist 로 배포되고 테스트용 로컬 웹서버가 기동됩니다.
 
-![alt]({{ site.url }}{{ site.baseurl }}/assets/images/_posts/20180412/01.png)
+![]({{ site.url }}{{ site.baseurl }}/assets/images/posts/electron-react-vscode/01.png)
 
 브라우저를 통해 접속하시면 아래와 같은 화면을 볼 수 있습니다.
 
-![alt]({{ site.url }}{{ site.baseurl }}/assets/images/_posts/20180412/02.png)
-
+![]({{ site.url }}{{ site.baseurl }}/assets/images/posts/electron-react-vscode/02.png)
+<br>
 
 크롬 브라우저를 --remote-debugging-port 옵션에 9222 번으로 지정하여 실행합니다.
 vscode 에서 App.jsx 의 render 함수 부분에 break point 를 설정하고 'attach webpack-dev-server' 를 디버그로 실행합니다.
 그리고 크롬에서 페이지를 새로고침하면 아래처럼 vscode 단에서 디버깅을 하실 수 있습니다.
 
-![alt]({{ site.url }}{{ site.baseurl }}/assets/images/_posts/20180412/03.png)
+![]({{ site.url }}{{ site.baseurl }}/assets/images/posts/electron-react-vscode/03.png)
 
 react 로직이 구현된 파일은 확장자를 .jsx 를 사용하였고, 스타일을 동일한 이름의 .scss 파일로 정의해두었습니다.
 저도 기존에 프론트엔드를 접하지 않았었고 아직 기초적인 설정을 적용했다고 생각합니다.
