@@ -8,7 +8,7 @@ last_modified_at: 2022-01-25 15:50:00 +0900
 categories:
 - java
 
-tags: [java, version]
+tags: [java, version, 변경사항, 버전, 변경점, release, note]
 ---
 
 # Java 8
@@ -23,7 +23,6 @@ interface Square {
     int calculate(int x);
 }
 ```
-
 
 ## Lambda expression
 표현식을 사용하여 하나의 메소드 인터페이스를 나타내는 간결한 방법 제공. functional interface의 구현을 제공하는데 사용. 
@@ -181,7 +180,7 @@ public interface Macbook {
 ```
 
 # Java 10
-참고 : [JDK 10 Release Notes](https://www.oracle.com/java/technologies/javase/10-relnote-issues.html)
+참고 : [JDK 10 Documentation](https://docs.oracle.com/javase/10/)
 
 ## Optional.orElseThrow()
 `Optional.orElseThrow()` 메소드가 추가되었으며, 기존의 `get()` 메소드와 동의어이며 이보다 선호되는 대안
@@ -190,20 +189,101 @@ public interface Macbook {
 `List.copyOf`, `Set.copyOf`, `Map.copyOf` 추가.
 Stream 패키지의 Collectors 클래스에 `toUnmodifiableList`, `toUnmodifiableSet`, `toUnmodifiableMap이` 추가
 
+## Docker 컨테이너에 대한 개선사항
+JVM은 Docker 컨테이너에서 실행 중이며 운영 체제를 쿼리하는 대신 컨테이너별 구성 정보를 추출한다는 것을 인식하도록 수정되었습니다. 
+추출되는 정보는 컨테이너에 할당된 CPU 및 총 메모리 수 입니다. java 프로세스에서 사용할 수 있는 총 CPU 수는 지정된 CPU 세트, CPU 공유 또는 CPU 할당량에서 계산됩니다. 
+이 지원은 Linux 기반 플랫폼에서만 사용할 수 있습니다. 이 새로운 지원은 기본적으로 활성화되며 JVM 옵션을 사용하여 명령줄에서 비활성화할 수 있습니다.
+```shell
+-XX:-UseContainerSupport
+```
+또한 이 변경 사항은 JVM이 사용할 CPU 수를 지정하는 기능을 제공하는 JVM 옵션을 추가합니다.
+```shell
+-XX:ActiveProcessorCount=count
+```
+이 수는 JVM의 다른 자동 CPU 감지 논리보다 우선합니다.
+
+Docker 컨테이너 사용자가 Java 힙에 사용할 시스템 메모리 양을 보다 세밀하게 제어할 수 있도록 세 가지 새로운 JVM 옵션이 추가되었습니다.
+```shell
+-XX:InitialRAMPercentage
+-XX:MaxRAMPercentage
+-XX:MinRAMPercentage
+```
+
+## Root Certificates
+JDK에서 루트 인증 기관(CA) 인증서의 기본 세트를 제공
+
+## Local-Variable Type Interface
+`var`를 사용하여 지역 변수에 대해 타입 추론 기능이 추가. 
+```java
+var url = new URL("http://www.oracle.com/"); 
+var conn = url.openConnection(); 
+var reader = new BufferedReader(
+    new InputStreamReader(conn.getInputStream()));
+```
+다음 유형의 변수에 가능.
+- initializers 를 사용한 지역 변수 선언
+- 향상된 for 루프 인덱스
+- 전통적인 for 루프에서 선언된 인덱스 변수
+- Try-with-resources variable
+
+```java
+var list = new ArrayList<String>();    // infers ArrayList<String>
+var stream = list.stream();            // infers Stream<String>
+
+var path = Paths.get(fileName);        // infers Path
+var bytes = Files.readAllBytes(path);  // infers bytes[]
+
+for (var counter=0; counter<10; counter++)  {...}   // infers int
+
+try (var input = 
+     new FileInputStream ("validation.txt")) {...}   // FileInputStream
+```
+
 # Java 11
-**계속 정리 예정중입니다**
+
+## Unicode 10.0.0 지원
+[Unicode 10.0.0](http://unicode.org/versions/Unicode10.0.0/)
+
+## Local-Variable Syntax for Lambda Parameters
+람다식의 매개변수를 선언할 때 var 사용 가능.
+```java
+@Nonnull var x = new Foo();
+(var x, var y) -> x.process(y)
+```
+
+## HTTP Client (Standard)
+JDK 9에 도입되고 JDK 10에서 업데이트된 HTTP Client API 가 `java.net.http` 패키지로 표준화.
+`jdk.incubator.http` 패키지는 제거.
+
+## Collection.toArray(IntFunction) Default Method
+새로운 기본 메소드 `toArray(IntFunction)`가 `java.util.Collection` 인터페이스에 추가되었습니다. 이 메서드를 사용하면 컬렉션의 요소를 원하는 런타임 유형의 새로 생성된 배열로 전송할 수 있습니다.
+
+## ZGC A Scalable Low-Latency Garbage Collector (Experimental)
+ZGC라고도 하는 Z Garbage Collector는 확장 가능한 저지연 가비지 수집기(JEP 333)입니다. 다음 목표를 충족하도록 설계되었습니다.
+- 일시 중지 시간은 10ms를 초과하지 않습니다.
+- 힙 또는 라이브 세트 크기에 따라 일시 중지 시간이 증가하지 않습니다.
+- 수백 메가바이트에서 수 테라바이트 크기의 힙 처리
+
+ZGC는 동시 가비지 수집기입니다. java 스레드가 계속 실행되는 동안 모든 무거운 작업(마킹, 압축, 참조 처리, 문자열 테이블 정리 등)이 수행됩니다. 이는 가비지 수집이 애플리케이션 응답 시간에 미치는 부정적인 영향을 크게 제한합니다.
+
+ZGC의 이 실험 버전에는 다음과 같은 제한 사항이 있습니다.
+
+- Linux/x64에서만 사용할 수 있습니다.
+- 압축된 oops 및/또는 압축된 클래스 포인트 사용은 지원되지 않습니다. ```-XX:+UseCompressedOops``` 및 ```-XX:+UseCompressedClassPointers``` 옵션은 기본적으로 비활성화되어 있습니다. 활성화해도 효과가 없습니다.
+- 클래스 언로드는 지원되지 않습니다. ```-XX:+ClassUnloading``` ```-XX:+ClassUnloadingWithConcurrentMark``` 옵션은 기본적으로 비활성화되어 있습니다. 활성화해도 효과가 없습니다.
+- Graal과 함께 ZGC를 사용하는 것은 지원되지 않습니다.
 
 # Java 12
-**계속 정리 예정중입니다**
+**작성 예정**
 
 # Java 13
-**계속 정리 예정중입니다**
+**작성 예정**
 
 # Java 14
-**계속 정리 예정중입니다**
+**작성 예정**
 
 # Java 15
-**계속 정리 예정중입니다**
+**작성 예정**
 
 # Java 16
-**계속 정리 예정중입니다**
+**작성 예정**
