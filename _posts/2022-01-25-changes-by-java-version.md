@@ -118,7 +118,7 @@ java.util.concurrent.atomic 및 sun.misc.Unsafe 작업에 해당하는 [VarHandl
 새로운 내부 표현은 바이트 배열과 인코딩 플래그 필드로 변경되어 메모리 공간 절약
 
 ## More Concurrency Updates
-동시성 및 병렬 처리 지원을 위한 (CompletableFuture)[https://docs.oracle.com/javase/9/docs/api/java/util/concurrent/CompletableFuture.html] API 개선과 publish-subscribe framework 제공
+동시성 및 병렬 처리 지원을 위한 [CompletableFuture](https://docs.oracle.com/javase/9/docs/api/java/util/concurrent/CompletableFuture.html) API 개선과 publish-subscribe framework 제공
 
 ## Unicode 8.0
 java 8 은 unicode 6.2 를 지원했으며, java 9에서는 [Unicode8.0](http://www.unicode.org/versions/Unicode8.0.0/) 을 지원
