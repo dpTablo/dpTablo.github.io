@@ -4,7 +4,7 @@
 }
 
 .about {
-  div, p, li { font-size: 0.95em; }
+  div, p, li { font-size: $type-size-5; }
   p { margin: 0 0 1em; }
   h3 { font-size: 1.65em; }
   h4 { font-size: 1.5em;  }
@@ -17,26 +17,38 @@
       margin: 0 !important;
     }
 
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        float: left;
+        margin-right: 1em;
+      }
+    }
+
     .profile_photo {
       width: 100%;
+      margin-bottom: 1em;
     }
     .ko_name {
       font-size: 1.6em;
       font-weight: 600;
-      margin-top: 0.5em;
     }
     .en_name {
-      font-size: 1.0em;
+      font-size: $type-size-5;
       color: gray;
     }
     .links {
-      margin-top: 1.5em;
-      font-size: 1.1em;
+      margin-top: 0.5em;
+      margin-bottom: 1em;
+      font-size: $type-size-5;
 
       div.row {
         padding-top: 0.5em;
         padding-bottom: 0.5em;
-        height: 2em;
+        height: 2.2em;
       }
 
       a { color: gray; }
@@ -86,7 +98,7 @@
 
   .skill_comment {
     margin-bottom: 1em;
-    font-size: 0.75em;
+    font-size: $type-size-6;
     color: gray;
 
     .skill_item {
@@ -99,16 +111,17 @@
 
     span.badge {
       font-weight: 400;
-      font-size: 0.8em;
+      font-size: $type-size-6;
     }
 
     > header {
       @extend .section-header-h3;
 
-      .title {
+      .experience-title {
         @extend h3;
         display: inline-block;
         border: 0;
+        font-weight: 500;
       }
     }
 
