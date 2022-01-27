@@ -11,7 +11,7 @@ categories:
 - springfox
 - swagger
 
-tags: [spring, spring boot, springfox, swagger, api, ]
+tags: [spring, spring boot, springfox, swagger, api, NullPointerException, documentationPluginsBootstrapper]
 ---
 
 # 이슈내용
