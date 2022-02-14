@@ -273,6 +273,40 @@ ZGC의 이 실험 버전에는 다음과 같은 제한 사항이 있습니다.
 - 클래스 언로드는 지원되지 않습니다. ```-XX:+ClassUnloading``` ```-XX:+ClassUnloadingWithConcurrentMark``` 옵션은 기본적으로 비활성화되어 있습니다. 활성화해도 효과가 없습니다.
 - Graal과 함께 ZGC를 사용하는 것은 지원되지 않습니다.
 
+## Lazy Allocation of Compiler Threads
+컴파일러 스레드를 동적으로 제어하기 위해 새 명령줄 플래그 `-XX:+UseDynamicNumberOfCompilerThreads` 가 추가되었습니다.
+
+## ChaCha20 and Poly1305 Cryptographic Algorithms
+RFC 7539에 지정된 대로 ChaCha20 및 ChaCha20-Poly1305 암호를 구현합니다. ChaCha20은 이전의 안전하지 않은 RC4 스트림 암호를 대체할 수 있는 최신 스트림 암호입니다.
+
+## Transport Layer Security (TLS) 1.3
+JDK 11 릴리스에는 TLS(전송 계층 보안) 1.3 사양(RFC 8446) 구현이 포함되어 있습니다. 지원되는 기능 목록을 포함한 자세한 내용은 JSSE(Java Secure Socket Extension) 참조 가이드 문서 및 JEP 332를 참조하십시오 .
+
+TLS 1.3의 경우 다음과 같은 새로운 표준 알고리즘 이름이 정의됩니다.
+
+1. TLS 프로토콜 버전 이름: TLSv1.3
+2. SSLContext 알고리즘 이름: TLSv1.3
+3. TLS 1.3용 TLS 암호 제품군 이름: TLS_AES_128_GCM_SHA256, TLS_AES_256_GCM_SHA384
+4. X509KeyManager용 키 유형: RSASSA-PSS
+5. X509TrustManager용 인증 유형: RSASSA-PSS
+
+## Local-Variable Syntax for Lambda Parameters
+람다식의 형식 매개변수를 선언할 때 `var`를 사용할 수 있습니다.
+```java
+(var x, var y) -> x.process(y)
+```
+
+## Launch Single-File Source-Code Programs
+"shebang" 파일 및 관련 기술을 통해 스크립트 내에서 사용하는 것을 포함하여 Java 소스 코드의 단일 파일로 제공되는 프로그램을 실행하도록 Java 실행기를 향상시킵니다.
+```bash
+#!/opt/java/jdk-11/bin/java --source 11
+public class Test {
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
+    }
+}
+```
+
 # Java 12
 **작성 예정**
 
